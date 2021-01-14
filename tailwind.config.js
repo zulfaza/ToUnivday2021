@@ -21,7 +21,10 @@ module.exports = {
                     atas: "#E5B9CA",
                     bawah: "#E5BBCB"
                 },
-                gray: colors.trueGray
+                gray: colors.trueGray,
+                blue: {
+                    DEFAULT: "#71B4F4"
+                }
             }
         }
     },
