@@ -25,4 +25,10 @@
     .form-control {
         @apply bg-gray-200 opacity-50 w-full border-0 focus:rounded-lg focus:outline-none focus:ring-2 ring-indigo-300;
     }
+    .navbar {
+        @apply bg-pink-atas px-3 py-4 rounded-2xl lg:h-full flex items-center justify-between lg:flex-col lg:relative fixed z-50 bottom-10 lg:bottom-0 border-4 border-white lg:border-0;
+    }
+    .nav-item {
+        @apply p-3 rounded-xl flex justify-center items-center mb-2 hover:bg-white hover:bg-opacity-30 transition;
+    }
 }

@@ -853,6 +853,53 @@ label {
   width: 100%;
 }
 
+.navbar {
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 185, 202, var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+  border-radius: 1rem;
+  border-width: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: fixed;
+  bottom: 2.5rem;
+  z-index: 50;
+}
+
+@media (min-width: 1024px){
+  .navbar{
+    border-width: 0px;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    bottom: 0px;
+  }
+}
+
+.nav-item:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.3;
+}
+
+.nav-item{
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .space-y-0 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
