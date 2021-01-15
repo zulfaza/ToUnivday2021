@@ -2,46 +2,7 @@
     <div class="container px-6">
         <div class="lg:grid grid-rows-4 grid-cols-7 grid-flow-col gap-10 h-screen py-4">
             <div class="col-span-1 row-span-full">
-                <nav 
-                    class="navbar w-11/12">
-                    <div class="w-full">
-                        <div class="lg:flex justify-center mb-20 mt-5 hidden">
-                            <h5 class="text-white font-bold text-3xl border-b-4 border-white">
-                                dash
-                            </h5>
-                        </div>
-                        <ul class="flex flex-row justify-center lg:flex-col">
-                            <li class="nav-item">
-                                <a href="/">
-                                    <img src="{{asset('/img/Icon/home.svg')}}" alt="home">
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/">
-                                    <img src="{{asset('/img/Icon/menu.svg')}}" alt="home">
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/">
-                                    <img src="{{asset('/img/Icon/edit.svg')}}" alt="home">
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/">
-                                    <img src="{{asset('/img/Icon/other.svg')}}" alt="home">
-                                </a>
-                            </li>
-                            <li class="nav-item block lg:hidden">
-                                <a href="{{route('dashboard')}}">
-                                    <img src="{{asset('/img/Icon/profile white.svg')}}" alt="home">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="hidden lg:block">
-                        <img src="{{asset('/img/Logo festum.png')}}" alt="">
-                    </div>
-                </nav>
+                <x-navbar />
             </div>
             <div class="col-span-4 row-span-2 pb-10">
                 <div class="relative h-full lg:pt-36">
@@ -67,28 +28,14 @@
                         bisa beradaptasi dengan cara berinovasi tentunya dalam
                         digitalisasi xixixi</p>
                         <br>
-                    <button class="px-6 py-2 transition-colors bg-pink-atas hover:bg-opacity-100 bg-opacity-0 duration-300 border-4 border-pink-atas rounded-xl hover:text-white font-bold">
+                    <button class="btn btn-pink">
                         home
                     </button>
                 </div>
             </div>
             <div class="col-span-2 row-span-full">
 
-                <div class="hidden lg:block mb-4">
-                    <div class="flex justify-end items-center">
-                        <div class="nama mr-3 ">
-                            <a class="text-xl text-black hover:text-pink-atas transition-colors" href="{{route('dashboard')}}">
-                                Rifal
-                            </a>
-                        </div>
-                        <div class="profile">
-                            <a href="{{route('dashboard')}}">
-                                <img src="{{asset('/img/Icon/profile.svg')}}" alt="avatar">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                <x-auth-section />
                 <div class="h-full lg:h-3/4 w-full">
                     <div 
                     class="bg-pink-atas font-bold text-white text-center h-full w-full rounded-2xl px-6 py-8 flex flex-col items-center bg-bottom bg-no-repeat pb-72 lg:pb-0" 

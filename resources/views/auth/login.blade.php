@@ -28,19 +28,28 @@
             <div class="w-full max-w-2xl">
                 <h1 class="text-2xl sm:text-3xl font-bold mb-3 sm:text-black text-white">Login dulu ya... </h1>
                 <div class="card p-5 sm:p-1 rounded-lg shadow-lg sm:shadow-none">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password">
-                    </div>
-                    <div class="form-group">
-                        <button class="bg-blue-300 hover:bg-blue-500 hover:rounded-lg transition-all duration-300 py-1 px-10 text-white">log in</button>
-                    </div>
-                    <p class="opacity-50 text-xs sm:text-sm">*kerjakan soal ini dengan sungguh sungguh barangkali 
-                        aja nanti keluar pas lagi ngerjain utbk </p>
+                    <!-- Session Status -->
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                    <!-- Validation Errors -->
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+                    <form action="{{route('login')}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" class="form-control" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" id="password">
+                        </div>
+                        <div class="form-group">
+                            <button class="bg-blue-300 hover:bg-blue-500 hover:rounded-lg transition-all duration-300 py-1 px-10 text-white">log in</button>
+                        </div>
+                        <p class="opacity-50 text-xs sm:text-sm">*kerjakan soal ini dengan sungguh sungguh barangkali 
+                            aja nanti keluar pas lagi ngerjain utbk </p>
+                    </form>
                 </div>
             </div>
         </div>

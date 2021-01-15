@@ -16,6 +16,13 @@
     .container {
         @apply max-w-7xl mx-auto sm:px-6 lg:px-8;
     }
+
+    .btn {
+        @apply px-6 py-2 transition-colors duration-300 border-4 rounded-xl font-bold;
+    }
+    .btn-pink {
+        @apply bg-pink-atas hover:bg-opacity-100 bg-opacity-0 border-pink-atas hover:text-white;
+    }
     .card {
         @apply w-full max-w-screen-xl bg-white flex flex-col py-5 px-8 rounded-lg;
     }
@@ -30,5 +37,8 @@
     }
     .nav-item {
         @apply p-3 rounded-xl flex justify-center items-center mb-2 hover:bg-white hover:bg-opacity-30 transition;
+    }
+    .nav-item.active {
+        @apply bg-white bg-opacity-30 hover:bg-pink-400;
     }
 }
