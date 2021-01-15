@@ -1,5 +1,5 @@
 <nav 
-    class="navbar w-11/12">
+    class="navbar w-full">
     <div class="w-full">
         <div class="lg:flex justify-center mb-20 mt-5 hidden">
             <h5 class="text-white font-bold text-3xl border-b-4 border-white">
