@@ -1,5 +1,5 @@
 <div class="hidden lg:block mb-4">
-    @auth
+    @auth('admin')
     <div class="flex justify-end items-center">
         <div class="nama mr-3 ">
             <a class="text-xl text-black hover:text-pink-atas transition-colors" href="{{route('dashboard')}}">

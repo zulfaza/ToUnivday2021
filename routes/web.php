@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@ShowHome' )->name('home');
 Route::get('/term-of-reference', 'HomeController@ShowTermOfReference' )->name('term');
 
+Route::get('/tps', function(){
+    return view('Pengerjaan.tps');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->name('dashboard');
 
 require __DIR__.'/auth.php';

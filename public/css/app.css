@@ -841,6 +841,22 @@ label {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
+.btn-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgba(113, 180, 244, var(--tw-bg-opacity));
+}
+
+.btn-blue:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+}
+
+.btn-blue{
+  border-radius: 9999px;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
 .card {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));

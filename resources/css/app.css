@@ -23,6 +23,9 @@
     .btn-pink {
         @apply bg-pink-atas hover:bg-opacity-100 bg-opacity-0 border-pink-atas hover:text-white;
     }
+    .btn-blue {
+        @apply bg-blue rounded-full text-white hover:bg-blue-500;
+    }
     .card {
         @apply w-full max-w-screen-xl bg-white flex flex-col py-5 px-8 rounded-lg;
     }

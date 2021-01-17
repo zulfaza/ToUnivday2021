@@ -23,8 +23,8 @@
                                 simulasi try out, jadi ya
                                 kalo bisa mah diliat liat dulu sebelum
                                 milih mau ngerjain yang mana</p>
-                            <a class="btn bg-blue rounded-full text-white hover:bg-blue-500 " href="/saintek">saintek</a>
-                            <a class="btn bg-blue rounded-full text-white hover:bg-blue-500 " href="/soshum">soshum</a>
+                            <a class="btn btn-blue " href="/saintek">saintek</a>
+                            <a class="btn btn-blue " href="/soshum">soshum</a>
                         </div>
                     </div>
                 </div>
