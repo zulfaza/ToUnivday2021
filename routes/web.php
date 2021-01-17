@@ -20,6 +20,10 @@ Route::get('/tps', function(){
     return view('Pengerjaan.tps');
 });
 
+Route::get('/pengerjaan', function(){
+    return view('Pengerjaan.pengerjaan');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
