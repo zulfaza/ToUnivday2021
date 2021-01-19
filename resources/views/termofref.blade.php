@@ -23,93 +23,37 @@
                                 simulasi try out, jadi ya
                                 kalo bisa mah diliat liat dulu sebelum
                                 milih mau ngerjain yang mana</p>
-                            <a class="btn btn-blue " href="/saintek">saintek</a>
-                            <a class="btn btn-blue " href="/soshum">soshum</a>
+                            <a class="btn btn-blue " href="/saintek">mulai</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-span-6 row-span-3 mb-10 lg:mb-0">
                 <div class="lg:grid grid-cols-3 grid-rows-2 gap-4 w-full h-full py-10">
-                    <div class=" px-2 rounded-2xl text-black flex" >
-                        <div class="lg:w-72 mr-7 lg:mr-0">
-                            <img src="{{asset('img/termOfRef/Activity.png')}}" alt="icon">
-                        </div>
-                        <div class="self-center">
-                            <h4 class="font-bold text-3xl mb-5">
-                                poin satu
-                            </h4>
-                            <p class="opacity-50">Try out ini akan berisi
-                                dua segmen, yaitu
-                                TPS dan TPA</p>
-                        </div>
-                    </div>
-                    <div class=" px-2 rounded-2xl text-black flex" >
-                        <div class="lg:w-72 mr-7 lg:mr-0">
-                            <img src="{{asset('img/termOfRef/Chart.png')}}" alt="icon">
-                        </div>
-                        <div class=" self-center">
-                            <h4 class="font-bold text-3xl mb-5">
-                                poin dua
-                            </h4>
-                            <p class="opacity-50">Total soal TPS dan TPA
-                                berisi masing masing
-                                40 soal</p>
-                        </div>
-                    </div>
-                    <div class=" px-2 rounded-2xl text-black flex" >
-                        <div class="lg:w-72 mr-7 lg:mr-0">
-                            <img src="{{asset('img/termOfRef/Time Square.png')}}" alt="icon">
-                        </div>
-                        <div class=" self-center">
-                            <h4 class="font-bold text-3xl mb-5">
-                                poin tiga
-                            </h4>
-                            <p class="opacity-50">Waktu yang disediakan,
-                                SAINTEK 118 menit
-                                SOSHUM 110 menit</p>
-                        </div>
-                    </div>
-                    <div class=" px-2 rounded-2xl text-black flex" >
-                        <div class="lg:w-72 mr-7 lg:mr-0">
-                            <img src="{{asset('img/termOfRef/Calendar.png')}}" alt="icon">
-                        </div>
-                        <div class=" self-center">
-                            <h4 class="font-bold text-3xl mb-5">
-                                poin empat
-                            </h4>
-                            <p class="opacity-50">Akan dibagi menjadi
-                                dua sesi saat try out
-                                sedang berlangsung</p>
-                        </div>
-                    </div>
-                    <div class=" px-2 rounded-2xl text-black flex" >
-                        <div class="lg:w-72 mr-7 lg:mr-0">
-                            <img src="{{asset('img/termOfRef/Path.png')}}" alt="icon">
-                        </div>
-                        <div class=" self-center">
-                            <h4 class="font-bold text-3xl mb-5">
-                                poin lima
-                            </h4>
-                            <p class="opacity-50">Bebas memilih jenis
-                                soal mana yang ingin
-                                dikerjakan, antara
-                                Saintek/Soshum</p>
-                        </div>
-                    </div>
-                    <div class=" px-2 rounded-2xl text-black flex" >
-                        <div class="lg:w-72 mr-7 lg:mr-0">
-                            <img src="{{asset('img/termOfRef/Group 9.png')}}" alt="icon">
-                        </div>
-                        <div class=" self-center">
-                            <h4 class="font-bold text-3xl mb-5">
-                                poin enam
-                            </h4>
-                            <p class="opacity-50">Coba coba aja diseriusin
-                                pas ngerjainnya, siapa
-                                tau ada sesuatu, xixixi</p>
-                        </div>
-                    </div>
+                    <x-term.poin 
+                        img="{{asset('img/termOfRef/Activity.png')}}" 
+                        title="poin satu" 
+                        desc="Try out ini akan berisi dua segmen, yaitu TPS dan TPA"/>
+                    <x-term.poin 
+                        img="{{asset('img/termOfRef/Chart.png')}}" 
+                        title="poin dua" 
+                        desc="Total soal TPS dan TPA berisi masing masing 40 soal"/>
+                    <x-term.poin 
+                        img="{{asset('img/termOfRef/Time Square.png')}}" 
+                        title="poin tiga" 
+                        desc="Waktu yang disediakan, SAINTEK 118 menit SOSHUM 110 menit"/>
+                    <x-term.poin 
+                        img="{{asset('img/termOfRef/Calendar.png')}}" 
+                        title="poin empat" 
+                        desc="Akan dibagi menjadi dua sesi saat try out sedang berlangsung"/>
+                    <x-term.poin 
+                        img="{{asset('img/termOfRef/Path.png')}}" 
+                        title="poin lima" 
+                        desc="Bebas memilih jenis soal mana yang ingin dikerjakan, antara Saintek/Soshum"/>
+                    <x-term.poin 
+                        img="{{asset('img/termOfRef/Group 9.png')}}" 
+                        title="poin enam" 
+                        desc="Coba coba aja diseriusin pas ngerjainnya, siapa tau ada sesuatu, xixixi"/>
                 </div>
             </div>
         </div>  

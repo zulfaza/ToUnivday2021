@@ -7,7 +7,9 @@
             </div>
             <div class="relative col-span-5 row-span-full h-full">
                 <div class="lg:w-6/12 lg:py-10 px-5 z-10 relative h-full">
-                    <h1 class="font-bold text-black text-7xl leading-tight">tes potensi skolatis</h1>
+                    <h1 class="font-bold text-black text-5xl md:text-7xl leading-tight">
+                        tes potensi skolatis
+                    </h1>
                     <p class="opacity-50 leading-relaxed">
                         Tes Potensi Skolastik (TPS) adalah sebuah tes
                         yang bertujuan untuk menguji kemampuan

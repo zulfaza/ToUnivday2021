@@ -28,9 +28,9 @@
                         bisa beradaptasi dengan cara berinovasi tentunya dalam
                         digitalisasi xixixi</p>
                         <br>
-                    <button class="btn btn-pink">
-                        home
-                    </button>
+                    <a href="/mulai" class="btn btn-pink">
+                    home
+                    </a>
                 </div>
             </div>
             <div class="col-span-2 row-span-full">

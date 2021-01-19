@@ -20,7 +20,9 @@ Route::get('/tps', function(){
     return view('Pengerjaan.tps');
 });
 
-
+Route::get('/tpa', function(){
+    return view('Pengerjaan.tpa');
+});
 
 Route::get('/pengerjaan', function(){
     return view('Pengerjaan.pengerjaan');
