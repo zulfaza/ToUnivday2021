@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Variabel;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -24,7 +25,17 @@ class RegisteredUserController extends Controller
     }
     public function AdminCreate()
     {
-        return view('auth.register');
+        $variabel = Variabel::where([
+            ['type', 'AdminVariabel'],
+            ['name', 'OpenRegisAdmin'],
+        ])->first();
+        $OpenRegis = $variabel->value == 'true';
+        if($OpenRegis){
+            return view('auth.admin-regis');
+        }
+        else{
+            abort(404);
+        }
     }
     /**
      * Handle an incoming registration request.
@@ -54,10 +65,11 @@ class RegisteredUserController extends Controller
     }
     public function AdminStore(Request $request)
     {
+
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|confirmed|min:8',
+            'email' => 'required|string|email|max:255|unique:admins',
+            'password' => 'required|string|min:8',
         ]);
 
         Auth::guard('admin')->login($admin = Admin::create([
@@ -68,6 +80,6 @@ class RegisteredUserController extends Controller
 
         event(new Registered($admin));
 
-        return redirect()->route('dashboard');
+        return redirect()->route('admin.dashboard');
     }
 }

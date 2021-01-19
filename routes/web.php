@@ -30,6 +30,12 @@ Route::get('/pengerjaan', function(){
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('.dashboard');
+});
 
 require __DIR__.'/auth.php';
