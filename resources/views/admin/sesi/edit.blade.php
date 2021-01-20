@@ -9,20 +9,20 @@
         
         <div class="card-wrapper mt-5">
             
-            <x-card header='Sesi Pagi'>
+            <x-card header='Edit Sesi'>
                 <form class="mt-4 text-xl"  action="{{route('admin.EditSesi', $sesi->id)}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama Sesi</label>
-                        <input type="text" class="form-control" name="nama" value="{{$sesi->nama}}" id="nama">
+                        <input type="text" required class="form-control" name="nama" value="{{$sesi->nama}}" id="nama">
                     </div>
                     <div class="form-group">
                         <label for="start_time">Waktu Mulai</label>
-                        <input value="{{\Carbon\Carbon::createFromTimestamp($sesi->start_time/1000)->format('Y-m-d\TH:i')}}" type="datetime-local" class="form-control" name="start_time" id="start_time">
+                        <input required value="{{\Carbon\Carbon::createFromTimestamp($sesi->start_time/1000)->format('Y-m-d\TH:i')}}" type="datetime-local" class="form-control" name="start_time" id="start_time">
                     </div>
                     <div class="form-group">
                         <label for="end_time">Waktu Selesai</label>
-                        <input value="{{\Carbon\Carbon::createFromTimestamp($sesi->end_time/1000)->format('Y-m-d\TH:i')}}" type="datetime-local" class="form-control" name="end_time" id="end_time">
+                        <input required value="{{\Carbon\Carbon::createFromTimestamp($sesi->end_time/1000)->format('Y-m-d\TH:i')}}" type="datetime-local" class="form-control" name="end_time" id="end_time">
                     </div>
                     <button class="btn btn-blue">Buat</button>
                 </form>

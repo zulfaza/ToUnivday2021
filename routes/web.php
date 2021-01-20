@@ -47,7 +47,13 @@ Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () 
     // Paket
     Route::name('.paket')->prefix('paket')->group(function () {
         Route::get('/', 'PaketController@ShowListPaket')->name('.list');
-        Route::get('/buat', 'PaketController@ShowListPaket')->name('.buat');
+        Route::get('/buat', 'PaketController@BuatPaketPage')->name('.buat');
+        Route::post('/buat', 'PaketController@BuatPaket');
+
+        Route::get('/edit/{paket}', 'PaketController@EditPaketPage')->name('.edit');
+        Route::post('/edit/{paket}', 'PaketController@editPaket');
+
+        Route::get('/hapus/{paket}', 'PaketController@HapusPaket')->name('.hapus');
     });
     
     

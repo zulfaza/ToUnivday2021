@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Sesi extends Model
 {
     use HasFactory;
+    public function pakets()
+    {
+        return $this->hasMany(Paket::class);
+    }
 }

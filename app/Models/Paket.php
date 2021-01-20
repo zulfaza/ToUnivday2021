@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Paket extends Model
 {
     use HasFactory;
+    public function sesi()
+    {
+        return $this->belongsTo(Sesi::class);
+    }
 }

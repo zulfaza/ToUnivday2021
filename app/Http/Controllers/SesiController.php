@@ -50,6 +50,9 @@ class SesiController extends Controller
     }   
     public function HapusSesi(Sesi $sesi)
     {
+        foreach ($sesi->pakets as $paket) {
+            $paket->delete();
+        }
         $sesi->delete();
         return back()->with('sukses', 'berhasil menghapus sesi');
     }
