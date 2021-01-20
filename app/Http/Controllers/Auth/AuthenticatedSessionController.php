@@ -22,7 +22,7 @@ class AuthenticatedSessionController extends Controller
     }
     public function AdminCreate()
     {
-        return view('auth.login');
+        return view('auth.admin-login');
     }
 
     /**
@@ -46,7 +46,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('admin.dashboard');
     }
 
     /**

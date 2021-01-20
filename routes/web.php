@@ -33,9 +33,28 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('.dashboard');
+    Route::get('/dashboard', 'AdminController@AdminDashboard')->name('.dashboard');
+    // Sesi
+    Route::name('.sesi')->prefix('sesi')->group(function(){
+        Route::get('/', 'SesiController@ListSesi')->name('.list');
+        Route::get('/buat', 'SesiController@BuatSesiPage')->name('.buat');
+        Route::post('/buat', 'SesiController@BuatSesi');
+        Route::get('/edit/{sesi}', 'SesiController@editSesiPage')->name('.edit');
+        Route::post('/edit/{sesi}', 'SesiController@updateSesi');
+        Route::get('/hapus/{sesi}', 'SesiController@HapusSesi')->name('.hapus');
+    });
+    
+    // Paket
+    Route::name('.paket')->prefix('paket')->group(function () {
+        Route::get('/', 'PaketController@ShowListPaket')->name('.list');
+        Route::get('/buat', 'PaketController@ShowListPaket')->name('.buat');
+    });
+    
+    
+    Route::get('/users', 'AdminController@AdminDashboard')->name('.users');
+    Route::get('/jenis', 'AdminController@AdminDashboard')->name('.listJenis');
+    Route::get('/Soal', 'AdminController@AdminDashboard')->name('.listSoal');
+
 });
 
 require __DIR__.'/auth.php';

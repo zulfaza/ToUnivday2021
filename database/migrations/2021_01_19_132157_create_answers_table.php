@@ -20,6 +20,10 @@ class CreateAnswersTable extends Migration
             $table->foreignId('soal_id');
             $table->integer('no');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('progress_id')->references('id')->on('progress');
+            $table->foreign('soal_id')->references('id')->on('soals');
         });
     }
 
