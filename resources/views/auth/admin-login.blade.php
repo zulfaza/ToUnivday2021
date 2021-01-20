@@ -47,6 +47,13 @@
                         <div class="form-group">
                             <button class="bg-blue-300 hover:bg-blue-500 hover:rounded-lg transition-all duration-300 py-1 px-10 text-white">log in</button>
                         </div>
+                        <!-- Remember Me -->
+                        <div class="block mt-4">
+                            <label for="remember_me" class="inline-flex items-center">
+                                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                            </label>
+                        </div>
                         <p class="opacity-50 text-xs sm:text-sm">*kerjakan soal ini dengan sungguh sungguh barangkali 
                             aja nanti keluar pas lagi ngerjain utbk </p>
                     </form>

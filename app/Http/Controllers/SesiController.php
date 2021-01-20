@@ -31,7 +31,7 @@ class SesiController extends Controller
        $Sesi->start_time = $startDate;
        $Sesi->end_time = $endtDate;
        $Sesi->save();
-       return redirect()->route('admin.listSesi')->with('sukses', 'Berhasil Membuat Sesi');
+       return redirect()->route('admin.sesi.list')->with('sukses', 'Berhasil Membuat Sesi');
     }
     public function updateSesi(Request $request, Sesi $sesi)
     {
@@ -41,7 +41,7 @@ class SesiController extends Controller
         $sesi->start_time = $startDate;
         $sesi->end_time = $endtDate;
         $sesi->save();
-        return redirect()->route('admin.listSesi')->with('sukses', 'Berhasil Mengupdate Sesi');
+        return redirect()->route('admin.sesi.list')->with('sukses', 'Berhasil Mengupdate Sesi');
 
     }
     public function editSesiPage(Sesi $sesi)

@@ -36,7 +36,7 @@ Route::post($adminLoginURL, [AuthenticatedSessionController::class, 'AdminStore'
                 ->middleware('guest');  
 
 Route::post($adminLogoutURL, [AuthenticatedSessionController::class, 'AdminDestroy'])
-                ->middleware('auth')
+                ->middleware('admin')
                 ->name('AdminLogout');
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])

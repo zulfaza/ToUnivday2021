@@ -24,7 +24,7 @@
                         <label for="end_time">Waktu Selesai</label>
                         <input required value="{{\Carbon\Carbon::createFromTimestamp($sesi->end_time/1000)->format('Y-m-d\TH:i')}}" type="datetime-local" class="form-control" name="end_time" id="end_time">
                     </div>
-                    <button class="btn btn-blue">Buat</button>
+                    <button class="btn btn-blue">Update</button>
                 </form>
             </x-card>
 

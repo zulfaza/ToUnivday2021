@@ -3,7 +3,7 @@
 <x-app-layout>
     <div class="container mt-10">
         <x-AdminNavbar />
-        <h1 class="text-5xl mt-4">Buat Sesi</h1>
+        <h1 class="text-5xl mt-4">Buat Paket</h1>
         <br>
         <a class="text-black hover:text-pink-atas transition" href="{{route('admin.paket.list')}}" ><- Back</a>
         

@@ -56,10 +56,16 @@ Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () 
         Route::get('/hapus/{paket}', 'PaketController@HapusPaket')->name('.hapus');
     });
     
-    
+    // Jenis
+    Route::name('.jenis')->prefix('jenis')->group(function(){
+        Route::get('/', 'JenisController@list')->name('.list');
+        Route::get('/buat', 'JenisController@ShowJenisPage')->name('.buat');
+        Route::post('/buat', 'JenisController@BuatJenis');
+        Route::get('/edit/{jenis}', 'JenisController@ShowJenisEditPage')->name('.edit');
+        Route::post('/edit/{jenis}', 'JenisController@UpdateJenis');
+        Route::get('/hapus/{jenis}', 'JenisController@HapusJenis')->name('.hapus');
+    });
     Route::get('/users', 'AdminController@AdminDashboard')->name('.users');
-    Route::get('/jenis', 'AdminController@AdminDashboard')->name('.listJenis');
-    Route::get('/Soal', 'AdminController@AdminDashboard')->name('.listSoal');
 
 });
 
