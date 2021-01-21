@@ -54,6 +54,15 @@ Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () 
         Route::post('/edit/{paket}', 'PaketController@editPaket');
 
         Route::get('/hapus/{paket}', 'PaketController@HapusPaket')->name('.hapus');
+    
+        Route::name('.soal')->prefix('soal')->group(function(){
+            Route::get('/{paket}', 'PaketController@ShowSoalPage')->name('.tambah');
+            Route::post('/{paket}', 'PaketController@SaveSoal');
+            Route::get('/edit/{soal}', 'PaketController@editSoalPage')->name('.edit');
+            Route::post('/edit/{soal}', 'PaketController@updateSoal');
+            Route::get('/hapus/{soal}', 'PaketController@HapusSoal')->name('.hapus');
+        });
+    
     });
     
     // Jenis

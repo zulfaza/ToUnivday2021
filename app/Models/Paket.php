@@ -12,4 +12,8 @@ class Paket extends Model
     {
         return $this->belongsTo(Sesi::class);
     }
+    public function soals()
+    {
+        return $this->hasMany(Soal::class);
+    }
 }

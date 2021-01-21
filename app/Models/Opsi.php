@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Opsi extends Model
 {
     use HasFactory;
+    public function soal()
+    {
+        return $this->belongsTo(Soal::class);
+    }
 }

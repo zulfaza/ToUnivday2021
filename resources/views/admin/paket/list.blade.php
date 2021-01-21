@@ -19,7 +19,7 @@
                         Sesi : {{$paket->sesi->nama}} | Waktu : {{$paket->waktu}} menit
                     </div>
                     <div class="btn-wrapper mt-5 md:mt-0">
-                        <a href="{{route('admin.paket.edit', $paket->id)}}" class="btn btn-blue">Tambah & edit soal</a>
+                        <a href="{{route('admin.paket.soal.tambah', $paket->id)}}" class="btn btn-blue">Tambah & edit soal</a>
                         <a href="{{route('admin.paket.edit', $paket->id)}}" class="btn btn-blue">Edit</a>
                         <a href="{{route('admin.paket.hapus', $paket->id)}}" class="btn btn-blue opacity-70">Hapus</a>
                     </div>

@@ -22,11 +22,55 @@ class HomeController extends Controller
 
         if($req->file()) {
             $fileName = time().'_'.$req->file->getClientOriginalName();
-            // save file to azure blob virtual directory uplaods in your container
-            $filePath = $req->file('file')->storeAs('uploads/', $fileName, 'azure');
+            $filePath = $req->file('file')->storeAs('soal/', $fileName, 'azure');
             dd($filePath);
         }else{
             dd($req);
         }
    }
+   public function upload(Request $request){
+       
+        $file = $request->file('file');
+        $ekstensi_diperbolehkan	= array('png','jpg','jpeg');
+        $ekstensi =strtolower($file->extension());
+        $azureURL =env('AZURE_STORAGE_URL').env('AZURE_STORAGE_CONTAINER')."/";
+        $fileName = time().'_'.$request->file->getClientOriginalName();
+        if((in_array($ekstensi, $ekstensi_diperbolehkan) === true ) && ($file->getSize() < 5242880)){
+            $filePath = $file->storeAs('/soal', $fileName, 'azure');
+            if($filePath)
+                return response()->json(
+                    [
+                        "uploaded"=>1,
+                        "fileName"=>$fileName,
+                        'location'=>$azureURL.$filePath,
+                    ],200);
+            else
+                return response()->json(
+                    [
+                    "uploaded"=>0,
+                    "error"=>[
+                        "message"=> "Shit Happen!"
+                    ]
+                    ],401);
+        }
+        else{
+            if($file->getSize() > 5242880)
+                return response()->json(
+                    [
+                    "uploaded"=>1,
+                    "error"=>[
+                        "message"=> "ukurannya kebesaran boss"
+                    ]
+                    ],400);
+            else
+                return response()->json(
+                    [
+                    "uploaded"=>1,
+                    "error"=>[
+                        "message"=> "tolong upload cuma gambar ya"
+                    ]
+                    ],401);
+        }
+
+    }
 }
