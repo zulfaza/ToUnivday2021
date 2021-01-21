@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Jenis;
+use App\Models\Soal;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@ShowHome' )->name('home');
+Route::get('/coba', function(){
+    $jenis = Jenis::where('tipe', 'tps')->get()->toArray();
+    dd($jenis);
+} );
 Route::get('/term-of-reference', 'HomeController@ShowTermOfReference' )->name('term');
 
 Route::get('/tps', function(){
@@ -67,9 +74,8 @@ Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () 
     
     // Jenis
     Route::name('.jenis')->prefix('jenis')->group(function(){
-        Route::get('/', 'JenisController@list')->name('.list');
-        Route::get('/buat', 'JenisController@ShowJenisPage')->name('.buat');
-        Route::post('/buat', 'JenisController@BuatJenis');
+        Route::get('/{tipe?}', 'JenisController@list')->name('.list');
+        Route::post('/buat', 'JenisController@BuatJenis')->name('.buat');
         Route::get('/edit/{jenis}', 'JenisController@ShowJenisEditPage')->name('.edit');
         Route::post('/edit/{jenis}', 'JenisController@UpdateJenis');
         Route::get('/hapus/{jenis}', 'JenisController@HapusJenis')->name('.hapus');

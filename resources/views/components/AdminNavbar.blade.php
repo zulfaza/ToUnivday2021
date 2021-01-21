@@ -2,6 +2,9 @@
     class="bg-pink-atas px-5 py-3 rounded-lg w-full flex justify-between flex-row">
     <ul class="flex">
         <li class="mr-3">
+            <a class="text-white" href="{{route('admin.dashboard')}}">overview</a>
+        </li>
+        <li class="mr-3">
             <a class="text-white" href="{{route('admin.sesi.list')}}">Sesi</a>
         </li>
         <li class="mr-3">

@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 
 class JenisController extends Controller
 {
-    public function list()
+    public function list($tipe= 'all')
     {
-        $listJenis = Jenis::all();
+        $tipe = strtolower($tipe);
+        $listTipe = ['tps', 'saintek', 'soshum'];
+        if(in_array($tipe, $listTipe)){
+            $listJenis = Jenis::where('tipe', $tipe)->get();
+        }else{
+            $listJenis = Jenis::all();
+        }
+        
         return view('admin.jenis.list', compact('listJenis'));
-    }
-    public function ShowJenisPage()
-    {
-        return view('admin.jenis.buat');
     }
     public function BuatJenis(Request $request)
     {

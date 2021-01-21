@@ -7,9 +7,33 @@
         <br>
 
         <x-auth-session-status class="mb-4 bg-green-300 px-6 py-4 rounded-lg" :status="session('sukses')" />
+        <div class="flex w-full flex-col md:flex-row">
+            <a href="{{route('admin.jenis.list')}}" class="btn btn-blue">All</a>
+            <a href="{{route('admin.jenis.list', 'tps')}}" class="btn btn-blue">TPS</a>
+            <a href="{{route('admin.jenis.list', 'saintek')}}" class="btn btn-blue">SAINTEK</a>
+            <a href="{{route('admin.jenis.list', 'soshum')}}" class="btn btn-blue">SOSHUM</a>
+        </div>
+        <div class="card-wrapper mt-5">
+            <x-card header='Buat Jenis'>
+                <form class="mt-4 text-xl"  action="{{route('admin.jenis.buat')}}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="nama">Nama Jenis</label>
+                        <input type="text" class="form-control" name="nama" id="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipe">Pilih Tipe</label>
+                        <select name="tipe" id="tipe" class="form-control" required>
+                            <option class="uppercase" value="tps">TPS</option>
+                            <option class="uppercase" value="saintek">saintek</option>
+                            <option class="uppercase" value="soshum">soshum</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-blue">Buat</button>
+                </form>
+            </x-card>
+        </div>
 
-        <a href="{{route('admin.jenis.buat')}}" class="btn btn-pink">buat jenis</a>
-        
         <div class="card-wrapper mt-5">
             
             @if (count($listJenis) > 0)

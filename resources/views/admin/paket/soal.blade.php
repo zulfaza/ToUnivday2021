@@ -20,11 +20,11 @@
                             <input type="hidden" name="jmlOpsi" id="jmlOpsi">
                             <div class="form-group">
                                 <label for="no">No</label>
-                                <input type="number" name="no" id="no" class="form-control">
+                                <input type="number" name="no" id="no" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="jenis">Jenis</label>
-                                <select name="jenis" id="jenis" class="form-control">
+                                <select name="jenis" id="jenis" class="form-control" required>
                                     @foreach ($listJenis as $jenis)
                                         <option value="{{$jenis->id}}">{{$jenis->nama}}</option>
                                     @endforeach
@@ -46,7 +46,7 @@
                             <button type="button" class="btn btn-blue opacity-50 hidden" id="deleteOpsi" onclick="HapusOpsi()">Hapus Opsi</button>
                             <div class="form-group">
                                 <label for="jawaban">Jawaban</label>
-                                <select name="jawaban" id="jawaban" class="form-control">
+                                <select name="jawaban" id="jawaban" class="form-control" required>
                                     <option value="A">A</option>
                                     <option value="B">B</option>
                                 </select>

@@ -75,7 +75,7 @@ class PaketController extends Controller
             $opsi->tipe = $arrOpsi[$i];
             $opsi->save();
         }
-        return redirect()->route('admin.paket.soal.tambah')->with('sukses', 'Berhasil Menambahkan soal');
+        return redirect()->route('admin.paket.soal.tambah', $paket->id)->with('sukses', 'Berhasil Menambahkan soal');
     }
     public function editSoalPage(Soal $soal)
     {
