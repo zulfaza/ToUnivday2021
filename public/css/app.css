@@ -964,6 +964,21 @@ label {
   --tw-bg-opacity: 0.3;
 }
 
+/* CHECKBOX TOGGLE SWITCH */
+
+/* @apply rules for documentation, these do not work as inline style */
+
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68d391;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68d391;
+}
+
 .space-y-0 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));

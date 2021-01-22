@@ -11,7 +11,7 @@
             <a class="text-white" href="{{route('admin.paket.list')}}">Paket</a>
         </li>
         <li class="mr-3">
-            <a class="text-white" href="{{route('admin.users')}}">Users</a>
+            <a class="text-white" href="{{route('admin.users.list')}}">Users</a>
         </li>
         <li class="mr-3">
             <a class="text-white" href="{{route('admin.jenis.list')}}">Jenis</a>

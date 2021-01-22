@@ -23,14 +23,24 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $variabel = Variabel::where([
+            ['type', 'AdminVariabel'],
+            ['name', 'OpenRegisUser'],
+        ])->firstOrFail();
+        $OpenRegis = $variabel->value == 'true';
+        if($OpenRegis){
+            return view('auth.register');
+        }
+        else{
+            abort(404);
+        }
     }
     public function AdminCreate()
     {
         $variabel = Variabel::where([
             ['type', 'AdminVariabel'],
             ['name', 'OpenRegisAdmin'],
-        ])->first();
+        ])->firstOrFail();
         $OpenRegis = $variabel->value == 'true';
         if($OpenRegis){
             return view('auth.admin-regis');

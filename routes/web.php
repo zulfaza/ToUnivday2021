@@ -22,13 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@ShowHome' )
         ->middleware(['check.ujian'])
         ->name('home');
-Route::get('/coba', function(){
-    $sesi = Sesi::first();
-    dd($sesi);
-    // return now()->addMinutes(90)->getPreciseTimestamp(3);
-});
-
-
 // user Route
 Route::middleware(['auth'])->name('user')->group(function(){
     Route::get('/term-of-reference', 'HomeController@ShowTermOfReference' )
@@ -56,6 +49,7 @@ Route::middleware(['auth'])->name('user')->group(function(){
 // Admin Route
 Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () {
     Route::get('/dashboard', 'AdminController@AdminDashboard')->name('.dashboard');
+    Route::post('/update/open-regis-admin', 'AdminController@updateOpenRegisAdmin')->name('.updetOpenRegis');
     // Sesi
     Route::name('.sesi')->prefix('sesi')->group(function(){
         Route::get('/', 'SesiController@ListSesi')->name('.list');
@@ -95,7 +89,11 @@ Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () 
         Route::post('/edit/{jenis}', 'JenisController@UpdateJenis');
         Route::get('/hapus/{jenis}', 'JenisController@HapusJenis')->name('.hapus');
     });
-    Route::get('/users', 'AdminController@AdminDashboard')->name('.users');
+    Route::name('.users')->prefix('users')->group(function(){
+        Route::get('/', 'AdminController@listUserPage')->name('.list');
+        Route::get('/detail/{user}', 'AdminController@detailUser')->name('.detail');
+        Route::post('/update/open-regis', 'AdminController@updateOpenRegis')->name('.updateOpenRegis');
+    });
 
 });
 
