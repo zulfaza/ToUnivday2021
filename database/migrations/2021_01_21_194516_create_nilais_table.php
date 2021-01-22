@@ -15,6 +15,11 @@ class CreateNilaisTable extends Migration
     {
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
+            $table->integer('value');
+            $table->foreignId('progress_id');
+            $table->foreign('progress_id')->references('id')->on('progress');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -17,37 +17,35 @@
                         mengungkap kualitas intelektual, maka tinggi/rendah
                         nya nilai TPA sering dihubungkan dengan tinggi/rendah
                         nya tingkat kecerdasan</p>
-                    <p class="opacity-50 leading-relaxed">Waktu pengerjaan saintek <span class="font-bold" >48 menit</span> soshum <span class="font-bold" >40 menit</span></p>
+                    <p class="opacity-50 leading-relaxed">Waktu pengerjaan 
+                        @foreach ($listPaket as $paket)
+                            {{$paket->tipe}} <span class="font-bold" >{{$paket->waktu}} menit</span>
+                        @endforeach
+                    </p>
                     <br />
                     <div class="font-bold opacity-50 text-7xl" id="countdown">
                         00 : 00
                     </div>
                     <div class="flex mt-3">
-                        <a href="/mulai" class="btn btn-blue">Saintek</a>
-                        <a href="/mulai" class="btn btn-blue">Soshum</a>
+                        <form action="{{route('user.pengerjaan.doing')}}" method="GET">
+                            @csrf
+                            @foreach ($listPaket as $paket)
+                                <button type="submit" name="pilihanTipe" value="{{$paket->tipe}}" class="btn btn-blue capitalize">{{$paket->tipe}}</button>    
+                            @endforeach
+                        </form>
                     </div>
                 </div>
                 <img class="absolute bottom-3 right-3 z-0"  src="{{asset('img/TPA/Saly-16.png')}}" alt="ilustrasi">
             </div>
         </div>
     </div>
+    <script src="{{asset('js/timerInit.js')}}"></script>
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date("Jan 19, 2021 15:30:00").getTime();
-        
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            if (seconds < 10) seconds = "0" + seconds;
-            if (minutes < 10) minutes = "0" + minutes;
-            document.getElementById("countdown").innerHTML = `${minutes} : ${seconds}`;
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "EXPIRED";
-            }
-        }, 1000);
+        var countDownDate = {{$progress->stop_time}};
+        function expiredFunction() {
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+        timerInit('countdown', countDownDate, expiredFunction)
         </script>
 </x-app-layout>

@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class="nav-item {{Request::routeIs('term') ? 'active' :  '' }}">
-                <a href="{{route('term')}}">
+                <a href="{{route('user.term')}}">
                     <img src="{{asset('/img/Icon/menu.svg')}}" alt="home">
                 </a>
             </li>
@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li class="nav-item block lg:hidden">
-                <a href="{{route('dashboard')}}">
+                <a href="{{route('user.dashboard')}}">
                     <img src="{{asset('/img/Icon/profile white.svg')}}" alt="home">
                 </a>
             </li>

@@ -17,9 +17,9 @@
                         dan lainnya yang meliputi: Penalaran Umum.
                         Pemahaman Bacaan dan Menulis. Pengetahuan
                         dan Pemahaman Umum.</p>
-                    <p class="opacity-50 leading-relaxed">Waktu pengerjaan : <span class="font-bold" >70 menit</span></p>
+                    <p class="opacity-50 leading-relaxed">Waktu pengerjaan : <span class="font-bold" >{{$paket->waktu}} menit</span></p>
                     <br />
-                    <a href="/mulai" class="btn btn-blue">mulai</a>
+                    <a href="{{route('user.pengerjaan.doing')}}" class="btn btn-blue">mulai</a>
                 </div>
                 <img class="absolute bottom-3 right-3 z-0"  src="{{asset('img/TPS/Saly-10.png')}}" alt="ilustrasi">
             </div>

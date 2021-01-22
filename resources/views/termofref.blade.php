@@ -23,7 +23,13 @@
                                 simulasi try out, jadi ya
                                 kalo bisa mah diliat liat dulu sebelum
                                 milih mau ngerjain yang mana</p>
-                            <a class="btn btn-blue " href="/saintek">mulai</a>
+                            @if ($sesi->start_time > now()->getPreciseTimestamp(3))
+                            <div class="timer opacity-50 mr-5 text-4xl" id="countdown">
+                                00:00
+                            </div>
+                            @else
+                            <a class="btn btn-blue " href="{{route('user.pengerjaan.persiapan')}}">mulai</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -58,4 +64,14 @@
             </div>
         </div>  
     </div>
+    @if ($sesi->start_time > now()->getPreciseTimestamp(3))
+    <script src="{{asset('js/timerInit.js')}}"></script>
+    <script>
+        let countdown = {{$sesi->start_time}}
+        function reloadPage(){
+            location.reload()
+        }
+        timerInit('countdown', countdown, reloadPage)
+    </script>
+    @endif
 </x-app-layout>

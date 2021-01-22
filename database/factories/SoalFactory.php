@@ -30,7 +30,7 @@ class SoalFactory extends Factory
             'no'=>($no+1),
             'paket_id'=>2,
             'jenis_id'=>$jenis[$no/5]['id'],
-            'body'=> '<p>Soal No Soshum '.$jenis[$no/5]['nama'].' '.(($no++)+1).' Jawbannya '.$answer.'</p>',
+            'body'=> '<p>Soal'.$jenis[$no/5]['nama'].' '.(($no++)+1).' Jawbannya '.$answer.'</p>',
             'answer'=>$answer,
         ];
     }

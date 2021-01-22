@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Jenis extends Model
 {
     use HasFactory;
+    public function soals()
+    {
+        return $this->hasMany(Soal::class);
+    }
 }

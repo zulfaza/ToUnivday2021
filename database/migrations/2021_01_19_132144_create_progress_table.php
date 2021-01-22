@@ -17,10 +17,14 @@ class CreateProgressTable extends Migration
             $table->id();
             $table->foreignId('sesi_id');
             $table->foreignId('user_id');
+            $table->foreignId('paket_id')->nullable();
             $table->integer('status')->default(0);
-            $table->string('tipe');
+            $table->integer('tipe')->default(0);
+            $table->string('start_time')->nullable();
+            $table->string('stop_time')->nullable();
             $table->timestamps();
 
+            $table->foreign('paket_id')->references('id')->on('pakets');
             $table->foreign('sesi_id')->references('id')->on('sesis');
             $table->foreign('user_id')->references('id')->on('users');
         });

@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
+use App\Models\Nilai;
+use App\Models\Progress;
+use App\Models\Sesi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -10,9 +15,23 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function ShowDashboard()
+    {
+        $user = Auth::user();
+        $nilai = Nilai::where('user_id',$user->id)->first();
+        $progress = $user->progress;
+        $show = $progress->status == 4;
+        $answers = Answer::where([
+            ['user_id',$user->id],
+        ])->with(['soal.options'])->get();
+        return view('dashboard', compact('nilai', 'answers', 'show'));
+    }
+
     public function ShowTermOfReference()
     {
-        return view('termofref');
+        $sesi = Auth::user()->progress->sesi;
+        return view('termofref', compact('sesi'));
     }
     public function cobaUpload()
     {

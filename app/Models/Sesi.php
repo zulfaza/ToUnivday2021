@@ -12,4 +12,8 @@ class Sesi extends Model
     {
         return $this->hasMany(Paket::class);
     }
+    public function progress()
+    {
+        return $this->hasMany(progress::class);
+    }
 }

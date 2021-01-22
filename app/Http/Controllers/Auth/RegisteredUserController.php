@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Progress;
+use App\Models\Sesi;
 use App\Models\User;
 use App\Models\Variabel;
 use App\Providers\RouteServiceProvider;
@@ -52,17 +54,20 @@ class RegisteredUserController extends Controller
             'username' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:8',
         ]);
-
-        Auth::login($user = User::create([
+        $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'kelas'=>$request->kelas
-        ]));
-
+        ]);
+        Auth::login($user);
+        $progress = new Progress;
+        $progress->sesi_id = Sesi::first()->id;
+        $progress->user_id = Auth::id();
+        $progress->save();
         event(new Registered($user));
 
-        return redirect()->route('dashboard');
+        return redirect()->route('user.dashboard');
     }
     public function AdminStore(Request $request)
     {

@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
                     case 'admin':
                         return redirect()->route('admin.dashboard');
                     default:
-                        return redirect()->route('dashboard');
+                        return redirect()->route('user.dashboard');
                 }
             }
         }

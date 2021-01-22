@@ -16,4 +16,8 @@ class Soal extends Model
     {
         return $this->belongsTo(Paket::class);
     }
+    public function jenis()
+    {
+        return $this->belongsTo(Jenis::class);
+    }
 }

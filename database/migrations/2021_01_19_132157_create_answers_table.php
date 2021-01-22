@@ -19,6 +19,8 @@ class CreateAnswersTable extends Migration
             $table->foreignId('progress_id');
             $table->foreignId('soal_id');
             $table->integer('no');
+            $table->char('value', 1)->nullable();
+            $table->integer('tipe')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

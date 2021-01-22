@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\Answer;
 use App\Models\Jenis;
+use App\Models\Sesi;
 use App\Models\Soal;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -16,29 +19,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@ShowHome' )->name('home');
+Route::get('/', 'HomeController@ShowHome' )
+        ->middleware(['check.ujian'])
+        ->name('home');
 Route::get('/coba', function(){
-    $jenis = Jenis::where('tipe', 'tps')->get()->toArray();
-    dd($jenis);
-} );
-Route::get('/term-of-reference', 'HomeController@ShowTermOfReference' )->name('term');
-
-Route::get('/tps', function(){
-    return view('Pengerjaan.tps');
+    $sesi = Sesi::first();
+    dd($sesi);
+    // return now()->addMinutes(90)->getPreciseTimestamp(3);
 });
 
-Route::get('/tpa', function(){
-    return view('Pengerjaan.tpa');
+
+// user Route
+Route::middleware(['auth'])->name('user')->group(function(){
+    Route::get('/term-of-reference', 'HomeController@ShowTermOfReference' )
+    ->middleware(['check.ujian'])
+    ->name('.term');
+    Route::name('.pengerjaan')->prefix('pengerjaan')->group(function(){
+        Route::get('/prepare/', 'TryOutController@pilihSesi')->name('.persiapan');
+        Route::get('/{no?}', 'TryOutController@Pengerjaan')->name('.doing');
+        Route::post('/{no?}', 'TryOutController@SaveAnswer');
+        
+        // Route::get('/{tipe}', );
+    });
+    
+    Route::get('/tpa', function(){
+        return view('Pengerjaan.tpa');
+    });
+
+    Route::get('/dashboard', 'HomeController@ShowDashboard')
+        ->middleware(['check.ujian'])
+        ->name('.dashboard');
 });
 
-Route::get('/pengerjaan', function(){
-    return view('Pengerjaan.pengerjaan');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
+// Admin Route
 Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () {
     Route::get('/dashboard', 'AdminController@AdminDashboard')->name('.dashboard');
     // Sesi
