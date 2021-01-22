@@ -65,7 +65,7 @@
             <div class="col-span-6 row-span-full">
                 <x-auth-section />
                 <div class="relative h-full py-6">
-                    <form action="{{route('user.pengerjaan.doing')}}" method="POST">
+                    <form id="formSoal" action="{{route('user.pengerjaan.doing')}}" method="POST">
                     <div class="flex font-bold justify-between flex-col md:flex-row items-center">
                         <div class="flex items-center mb-5 md:mb-0">
                             <div class="bg-white border-4 border-pink-atas px-3 py-1  rounded-2xl mr-3">
@@ -137,9 +137,10 @@
         // Set the date we're counting down to
         var countDownDate = new Date({{$progress->stop_time}}).getTime();
         function expiredFunction(){
-            document.getElementById("countdown").innerHTML = "EXPIRED";
+            document.getElementById("formSoal").submit();
         }
         timerInit('countdown', countDownDate, expiredFunction);
+        
         $("input[type='radio']").click(function(e) {
             var previousValue = $(this).attr('previousValue');
             var name = $(this).attr('name');

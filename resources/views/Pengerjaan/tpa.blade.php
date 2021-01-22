@@ -44,7 +44,7 @@
         // Set the date we're counting down to
         var countDownDate = {{$progress->stop_time}};
         function expiredFunction() {
-            document.getElementById("countdown").innerHTML = "EXPIRED";
+            document.getElementById("formSoal").submit();
         }
         timerInit('countdown', countDownDate, expiredFunction)
         </script>

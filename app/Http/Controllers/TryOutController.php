@@ -105,16 +105,17 @@ class TryOutController extends Controller
             break;
 
             case 2:
+                $pilihanTipe = $request->pilihanTipe ?? 'saintek';
                 $paket = Paket::where([
-                    ['tipe', $request->pilihanTipe],
+                    ['tipe', $pilihanTipe],
                     ['sesi_id', $progress->sesi_id]
                 ])->first();
-                $progress->tipe = $request->pilihanTipe == 'saintek' ? 1 : 2;
+                $progress->tipe = $pilihanTipe == 'saintek' ? 1 : 2;
                 $progress->status = 3;
                 $progress->stop_time = now()->addMinutes($paket->waktu)->getPreciseTimestamp(3);
                 $progress->paket_id = $paket->id;
                 $progress->save();
-                $listJenis = Jenis::where('tipe', $request->pilihanTipe)->get();
+                $listJenis = Jenis::where('tipe', $pilihanTipe)->get();
                 $arrAnswer = [];
                 foreach ($listJenis as $jenis) {
                     $listSoal = Soal::where('jenis_id', $jenis->id)->inRandomOrder()->get();
