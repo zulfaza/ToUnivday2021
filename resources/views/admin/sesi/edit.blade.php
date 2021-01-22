@@ -10,7 +10,7 @@
         <div class="card-wrapper mt-5">
             
             <x-card header='Edit Sesi'>
-                <form class="mt-4 text-xl"  action="{{route('admin.EditSesi', $sesi->id)}}" method="POST">
+                <form class="mt-4 text-xl"  action="{{route('admin.sesi.edit', $sesi->id)}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama Sesi</label>
