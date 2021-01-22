@@ -8,7 +8,6 @@ use App\Models\Progress;
 use App\Models\Sesi;
 use App\Models\User;
 use App\Models\Variabel;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

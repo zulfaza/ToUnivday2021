@@ -22,6 +22,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@ShowHome' )
         ->middleware(['check.ujian'])
         ->name('home');
+
+Route::get('/coba', function(){
+    if ($Jurusan = explode(" ", "XII MIPA 8")[2] < 7) {
+        return 'true';
+    }
+    return 'false' ;
+});
 // user Route
 Route::middleware(['auth'])->name('user')->group(function(){
     Route::get('/term-of-reference', 'HomeController@ShowTermOfReference' )
@@ -31,13 +38,8 @@ Route::middleware(['auth'])->name('user')->group(function(){
         Route::get('/prepare/', 'TryOutController@pilihSesi')->name('.persiapan');
         Route::get('/{no?}', 'TryOutController@Pengerjaan')->name('.doing');
         Route::post('/{no?}', 'TryOutController@SaveAnswer');
-        
-        // Route::get('/{tipe}', );
     });
     
-    Route::get('/tpa', function(){
-        return view('Pengerjaan.tpa');
-    });
 
     Route::get('/dashboard', 'HomeController@ShowDashboard')
         ->middleware(['check.ujian'])

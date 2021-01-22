@@ -5,7 +5,7 @@
         <x-AdminNavbar />
         <h1 class="text-5xl mt-4">Edit Sesi</h1>
         <br>
-        <a class="text-black hover:text-pink-atas transition" href="{{route('admin.listSesi')}}" ><- Back</a>
+        <a class="text-black hover:text-pink-atas transition" href="{{route('admin.sesi.list')}}" ><- Back</a>
         
         <div class="card-wrapper mt-5">
             
