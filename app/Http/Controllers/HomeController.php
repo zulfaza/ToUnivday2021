@@ -6,6 +6,7 @@ use App\Models\Answer;
 use App\Models\Nilai;
 use App\Models\Progress;
 use App\Models\Sesi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,11 @@ class HomeController extends Controller
 
     public function ShowDashboard()
     {
-        $user = Auth::user();
+        $user = User::where('id', Auth::id())->first();
+        if($user->status == 0){
+            $user->status= 1;
+            $user->save();
+        }
         $nilai = Nilai::where('user_id',$user->id)->first();
         $progress = $user->progress;
         $show = $progress->status == 4;
@@ -33,20 +38,6 @@ class HomeController extends Controller
         $sesi = Auth::user()->progress->sesi;
         return view('termofref', compact('sesi'));
     }
-    public function cobaUpload()
-    {
-        return view('admin.cobaupload');
-    }
-    public function fileUpload(Request $req){
-
-        if($req->file()) {
-            $fileName = time().'_'.$req->file->getClientOriginalName();
-            $filePath = $req->file('file')->storeAs('soal/', $fileName, 'azure');
-            dd($filePath);
-        }else{
-            dd($req);
-        }
-   }
    public function upload(Request $request){
        
         $file = $request->file('file');

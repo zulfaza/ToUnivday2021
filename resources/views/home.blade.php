@@ -28,8 +28,8 @@
                         bisa beradaptasi dengan cara berinovasi tentunya dalam
                         digitalisasi xixixi</p>
                         <br>
-                    <a href="/mulai" class="btn btn-pink">
-                    home
+                    <a href="{{route('user.term')}}" class="btn btn-pink">
+                    mulai
                     </a>
                 </div>
             </div>

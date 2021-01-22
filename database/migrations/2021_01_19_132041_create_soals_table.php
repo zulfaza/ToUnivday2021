@@ -20,6 +20,7 @@ class CreateSoalsTable extends Migration
             $table->foreignId('jenis_id');
             $table->text('body');
             $table->string('answer');
+            $table->integer('bobot')->default(0);
             $table->timestamps();
 
             $table->foreign('paket_id')->references('id')->on('pakets');

@@ -8,6 +8,7 @@ use App\Models\Nilai;
 use App\Models\Paket;
 use App\Models\Progress;
 use App\Models\Soal;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -159,7 +160,7 @@ class TryOutController extends Controller
    }
    public function SaveAnswer(Request $request)
    {
-        $user = Auth::user();
+        $user = User::where('id', Auth::id())->first();
         $progress = $user->progress;
         $currentAnswer = Answer::where([
             ['tipe',$request->currentTipe],
@@ -190,10 +191,14 @@ class TryOutController extends Controller
                 $progress->status = 2;
                 $progress->stop_time = now()->addMinutes(5)->getPreciseTimestamp(3);
                 $progress->save();
+                $user->status = 2;
+                $user->save();
                 return redirect()->route('user.pengerjaan.persiapan');
             }else{
                 $progress->status = 4;
                 $progress->save();
+                $user->status = 3;
+                $user->save();
                 return redirect()->route('user.dashboard');   
             }
         }
