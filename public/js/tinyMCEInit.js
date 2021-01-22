@@ -23,7 +23,7 @@ function initMCEexact(id, height = 300) {
             var path = window.location.pathname.split("/");
             xhr = new XMLHttpRequest();
             xhr.withCredentials = false;
-            xhr.open("POST", "/api/upload/");
+            xhr.open("POST", "/fungsi/upload/");
             var token = $('meta[name="csrf-token"]').attr("content");
             xhr.setRequestHeader("X-CSRF-Token", token);
             xhr.onload = function() {

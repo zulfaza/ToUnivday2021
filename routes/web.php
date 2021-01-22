@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/fungsi/upload','HomeController@upload');
+
 Route::get('/', 'HomeController@ShowHome' )
         ->middleware(['check.ujian'])
         ->name('home');
