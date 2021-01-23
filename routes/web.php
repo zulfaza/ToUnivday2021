@@ -49,6 +49,7 @@ Route::middleware(['auth'])->name('user')->group(function(){
 Route::middleware(['admin'])->prefix('admin')->name('admin')->group(function () {
     Route::get('/dashboard', 'AdminController@AdminDashboard')->name('.dashboard');
     Route::post('/update/open-regis-admin', 'AdminController@updateOpenRegisAdmin')->name('.updetOpenRegis');
+    Route::post('/delete/{admin}', 'AdminController@deleteAdmin')->name('.delete');
     // Sesi
     Route::name('.sesi')->prefix('sesi')->group(function(){
         Route::get('/', 'SesiController@ListSesi')->name('.list');

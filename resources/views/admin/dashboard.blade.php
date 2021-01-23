@@ -46,7 +46,9 @@
                         {{$admin->isSuperAdmin == 1 ? 'Super Admin' : 'Biasa aja'}}
                     </td>
                     <td>
-                        <a class="px-4 py-2 rounded-md btn-blue" href="/">Hapus</a>
+                       @if ($isSuper)
+                       <a class="px-4 py-2 rounded-md btn-blue" href="{{route('admin.delete', $admin->id)}}">Hapus</a>                           
+                       @endif
                     </td>
                 </tr>
                 @endforeach

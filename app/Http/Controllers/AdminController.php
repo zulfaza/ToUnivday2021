@@ -72,4 +72,9 @@ class AdminController extends Controller
         ])->with(['soal.options'])->get();
         return view('dashboard', compact('nilai', 'answers', 'show'));
     }
+    public function deleteAdmin(Admin $admin)
+    {
+        $admin->delete();
+        return back();
+    }
 }
