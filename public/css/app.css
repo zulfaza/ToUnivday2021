@@ -754,6 +754,8 @@ label {
 }
 
 table thead tr th {
+  padding-left: 1rem;
+  padding-right: 1rem;
   --tw-text-opacity: 1;
   color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
@@ -763,6 +765,8 @@ table tbody tr td {
   border-color: rgba(0, 0, 0, var(--tw-border-opacity));
   border-width: 1px;
   font-weight: 500;
+  padding-left: 1rem;
+  padding-right: 1rem;
   --tw-text-opacity: 1;
   color: rgba(38, 38, 38, var(--tw-text-opacity));
 }

@@ -11,10 +11,10 @@
         @apply font-semibold opacity-50 block;
     }
     table thead tr th {
-        @apply text-black;
+        @apply px-4 text-black;
     }
     table tbody tr td {
-        @apply border border-black text-gray-800 font-medium;
+        @apply border border-black px-4 text-gray-800 font-medium;
     }
     table tbody tr {
         @apply odd:bg-gray-200;
