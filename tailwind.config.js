@@ -32,7 +32,8 @@ module.exports = {
     variants: {
         extend: {
             opacity: ["disabled"],
-            borderRadius: ["hover", "focus"]
+            borderRadius: ["hover", "focus"],
+            backgroundColor: ["odd"]
         }
     },
 
