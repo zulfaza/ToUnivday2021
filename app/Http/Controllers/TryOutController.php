@@ -121,7 +121,10 @@ class TryOutController extends Controller
                 $listJenis = Jenis::where('tipe', $pilihanTipe)->get();
                 $arrAnswer = [];
                 foreach ($listJenis as $jenis) {
-                    $listSoal = Soal::where('jenis_id', $jenis->id)->inRandomOrder()->get();
+                    $listSoal = Soal::where([
+                        ['jenis_id', $jenis->id],
+                        ['paket_id', $progress->paket_id]
+                    ])->inRandomOrder()->get();
                     foreach($listSoal as $soal){
                         $answer = new Answer;
                         $answer->user_id = $user->id;
