@@ -776,6 +776,10 @@ table tbody tr:nth-child(odd){
   background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
 }
 
+ol li {
+  margin-bottom: 0.75rem;
+}
+
 .container{
   width: 100%;
 }

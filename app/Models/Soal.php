@@ -12,6 +12,10 @@ class Soal extends Model
     {
         return $this->hasMany(Opsi::class);
     }
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
     public function paket()
     {
         return $this->belongsTo(Paket::class);

@@ -19,6 +19,9 @@
     table tbody tr {
         @apply odd:bg-gray-200;
     }
+    ol li {
+        @apply mb-3;
+    }
 }
 
 @layer components {

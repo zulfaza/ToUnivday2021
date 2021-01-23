@@ -85,8 +85,12 @@ class PaketController extends Controller
     }
     public function HapusSoal(Soal $soal)
     {
+
         foreach ($soal->options as $opsi) {
             $opsi->delete();
+        }
+        foreach ($soal->answers as $answer) {
+            $answer->delete();
         }
         $soal->delete();
         return back()->with('sukses', 'berhasil menghapus soal');

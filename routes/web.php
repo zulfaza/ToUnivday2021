@@ -26,6 +26,10 @@ Route::get('/', 'HomeController@ShowHome' )
         ->middleware(['check.ujian'])
         ->name('home');
 
+Route::get('/coba', function(){
+    return now()->addMinutes(90)->getPreciseTimestamp(3);
+});
+
 // user Route
 Route::middleware(['auth'])->name('user')->group(function(){
     Route::get('/term-of-reference', 'HomeController@ShowTermOfReference' )
