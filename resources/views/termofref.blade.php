@@ -27,7 +27,7 @@
                             <div class="timer opacity-50 mr-5 text-4xl" id="countdown">
                                 00:00
                             </div>
-                            @else
+                            @elseif($sesi->stop_time > now()->getPreciseTimestamp(3))
                             <a class="btn btn-blue " href="{{route('user.pengerjaan.persiapan')}}">mulai</a>
                             @endif
                         </div>
