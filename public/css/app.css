@@ -753,27 +753,72 @@ label {
   opacity: 0.5;
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
 table thead tr th {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgba(212, 212, 212, var(--tw-border-opacity));
+  border-width: 1px;
+  display: none;
+  font-weight: 700;
+  padding: 0.75rem;
   --tw-text-opacity: 1;
-  color: rgba(0, 0, 0, var(--tw-text-opacity));
+  color: rgba(82, 82, 82, var(--tw-text-opacity));
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px){
+  table thead tr th{
+    display: table-cell;
+  }
 }
 
 table tbody tr td {
-  --tw-border-opacity: 1;
-  border-color: rgba(0, 0, 0, var(--tw-border-opacity));
   border-width: 1px;
-  font-weight: 500;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  border-bottom-width: 1px;
+  display: block;
+  padding: 0.75rem;
+  position: relative;
+  text-align: center;
   --tw-text-opacity: 1;
   color: rgba(38, 38, 38, var(--tw-text-opacity));
+  width: 100%;
 }
 
-table tbody tr:nth-child(odd){
+@media (min-width: 1024px){
+  table tbody tr td{
+    display: table-cell;
+    position: static;
+    width: auto;
+  }
+}
+
+table tbody tr {
   --tw-bg-opacity: 1;
-  background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px){
+  table tbody tr:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(245, 245, 245, var(--tw-bg-opacity));
+  }
+
+  table tbody tr{
+    display: table-row;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 0px;
+  }
 }
 
 ol li {

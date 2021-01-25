@@ -24,4 +24,8 @@ class Progress extends Model
     {
         return $this->hasMany(Answer::class);
     }
+    public function nilai()
+    {
+        return $this->hasOne(Nilai::class);
+    }
 }

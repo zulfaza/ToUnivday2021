@@ -33,7 +33,8 @@ module.exports = {
         extend: {
             opacity: ["disabled"],
             borderRadius: ["hover", "focus"],
-            backgroundColor: ["odd"]
+            backgroundColor: ["odd"],
+            flexWrap: ["responsive"]
         }
     },
 

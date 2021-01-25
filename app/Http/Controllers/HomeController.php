@@ -7,6 +7,7 @@ use App\Models\Nilai;
 use App\Models\Progress;
 use App\Models\Sesi;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,22 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
+    public function ShowNilaiSoshum()
+    {
+        $nilais = Nilai::whereHas('progress', function(Builder  $query){
+            $query->where('tipe', 2);
+        })->with('user')->orderBy('value', 'desc')->get();
+        $title = 'Soshum';
+        return view('LeaderBoard.nilai', compact('nilais', 'title'));
+    }
+    public function ShowNilaiSaintek()
+    {
+        $nilais = Nilai::whereHas('progress', function(Builder  $query){
+            $query->where('tipe', 1);
+        })->with('user')->orderBy('value', 'desc')->get();
+        $title = 'Saintek';
+        return view('LeaderBoard.nilai', compact('nilais', 'title'));
+    }
     public function ShowDashboard()
     {
         $user = User::where('id', Auth::id())->first();

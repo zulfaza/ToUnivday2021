@@ -22,6 +22,10 @@ use Mockery\Undefined;
 
 Route::post('/fungsi/upload','HomeController@upload');
 
+Route::get('nilai/soshum', 'HomeController@ShowNilaiSoshum')->name('nilai.soshum');
+Route::get('nilai/saintek', 'HomeController@ShowNilaiSaintek')->name('nilai.saintek');
+
+
 Route::get('/', 'HomeController@ShowHome' )
         ->middleware(['check.ujian'])
         ->name('home');

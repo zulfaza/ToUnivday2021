@@ -10,14 +10,17 @@
     label {
         @apply font-semibold opacity-50 block;
     }
+    table {
+        @apply border-collapse w-full;
+    }
     table thead tr th {
-        @apply px-4 text-black;
+        @apply p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell;
     }
     table tbody tr td {
-        @apply border border-black px-4 text-gray-800 font-medium;
+        @apply w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static;
     }
     table tbody tr {
-        @apply odd:bg-gray-200;
+        @apply bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-nowrap mb-10 lg:mb-0;
     }
     ol li {
         @apply mb-3;
